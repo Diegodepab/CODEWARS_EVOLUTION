@@ -1,0 +1,30 @@
+
+
+def winner(choices, p1, p2):
+    p1_dex = choices.index(p1)
+    p2_dex = choices.index(p2)
+    if(len(choices)%2==0): #Lista par (se comporta diferente)
+        if(p1_dex == p2_dex or (abs(p1_dex-p2_dex)==len(choices)/2)):
+            return 'Draw!'
+        else:
+            if(p1_dex<len(choices)/2-1):
+                p1_dex= ((p1_dex+len(choices)/2)%len(choices))
+                p2_dex= ((p2_dex+len(choices)/2)%len(choices))
+            if (0<(p1_dex-p2_dex)<=len(choices)/2):
+                return 'Player 1 won!' 
+            else:
+                return 'Player 2 won!'
+    else: #Lista impar
+        if(p1_dex==p2_dex):
+            return 'Draw!'
+        else:
+            if(p1_dex<len(choices)/2-1):
+                p1_dex= ((p1_dex+len(choices)/2)%len(choices))
+                p2_dex= ((p2_dex+len(choices)/2)%len(choices))
+            if (0<(p1_dex-p2_dex)<=len(choices)/2):
+                return 'Player 1 won!' 
+            else:
+                return 'Player 2 won!'
+
+    
+    
